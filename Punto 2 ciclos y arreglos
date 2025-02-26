@@ -1,0 +1,43 @@
+def maxHR(age):
+        return 208 - (0.7 * age)
+
+def Zona_De_Trabajo(FCDE, maxHR2):
+    percentage = (FCDE / maxHR2) * 100
+    
+    if 50 < percentage <= 60:
+        return "Zona 1 (Recuperación)"
+    elif 60 < percentage <= 70:
+        return "Zona 2 (Resistencia)"
+    elif 70 < percentage <= 80:
+        return "Zona 3 (Aeróbica)"
+    elif 80 < percentage <= 90:
+        return "Zona 4 (Anaeróbica)"
+    elif 90 < percentage <= 100: 
+        return "Zona 5 (Máxima)"
+    else: 
+        return "Zona F (Zona fuera de rango)"
+
+age = int(input("Ingrese su edad: "))
+maxHR2 = maxHR (age)
+Datos = []
+
+n = int(input("Ingrese el nuemero de entrenamientos realizados: "))
+
+for i in range (n):
+    FCDE = int(input(f"Ingrese la frecuencia cardiaca durante el entrenamiento {i+1}: "))
+    Datos.append (Zona_De_Trabajo (FCDE, maxHR2))
+
+if FCDE > 50 or FCDE < 100:
+
+    print(f"La zona de trabajo en la que se realizo el entrenamiento fue: {", ".join(Datos)}")
+
+Zonas = {"Zona 1": 0, "Zona 2": 0, "Zona 3": 0, "Zona 4": 0, "Zona 5": 0, "Zona F": 0}
+
+for data in Datos :
+    for key in Zonas.keys():
+        if key in data: 
+            Zonas[key] += round((1 / n) * 100, 2)
+            break
+
+for item in Zonas:
+    print (f"{item} : {Zonas[item]} ")
