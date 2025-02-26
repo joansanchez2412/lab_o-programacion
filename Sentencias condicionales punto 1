@@ -1,1 +1,25 @@
+def maxHR(age):
+    return 208 - (0.7 * age)
 
+age = int(input("Ingrese su edad: "))
+frecuencia_cardiaca=int(input("ingrese la frecuencia cardiaca para el entrenamiento deseado: "))
+
+minimo_z1 = maxHR(age) * 0.50
+maximoz1_manimoz2 = maxHR(age) * 0.60
+maximoz2_minimoz3 = maxHR(age) * 0.70
+maximoz3_minimoz4 = maxHR(age) * 0.80
+maximoz4_minimoz5 = maxHR(age) * 0.90
+maximoz5 = maxHR(age) * 1.00
+
+if minimo_z1 <= frecuencia_cardiaca < maximoz1_manimoz2:
+    print("la zona de trabajo en la que le corresponde es la zona 1 (Recuperación)")
+elif maximoz1_manimoz2 <= frecuencia_cardiaca < maximoz2_minimoz3:
+    print("la zona de trabajo en la que le corresponde es la zona 2 (Resistencia)")
+elif maximoz2_minimoz3 <= frecuencia_cardiaca < maximoz3_minimoz4:
+    print("la zona de trabajo en la que le corresponde es la zona 3 (Aeróbica)")
+elif maximoz4_minimoz5 <= frecuencia_cardiaca < maximoz4_minimoz5:
+    print("la zona de trabajo en la que le corresponde es la zona 4 (Anaeróbica)")
+elif maximoz4_minimoz5 <= frecuencia_cardiaca <=maximoz5:
+    print("la zona de trabajo en la que le corresponde es la zona 5 (Máxima)")
+else:
+    print("Con la frecuencia cardiaca que ingreso se posiciona en la zona F (Fuerea del rango)")
