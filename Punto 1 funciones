@@ -1,16 +1,14 @@
 def get_zone(max_hr):
     Z2_rango=max_hr*0.6
     Z2_rangomax=max_hr*0.69
-    return print(f"El rango promedio de su zona 2 de entre {Z2_rango:.1f} and {Z2_rangomax:.1f}") 
+    return Z2_rango, Z2_rangomax
 
 
 def main(): 
     age = int(input("Ingrese su edad: "))
     max_hr = 208 - (0.7 * age)
-    
-    print(f"Su frecuencia cardíaca máxima es {max_hr:.1f} bpm.")
-    zona2_rango = get_zone(max_hr)
-
+    Z2_rango, Z2_rangomax= get_zone(max_hr)
+    print(f"El rango promedio para entrenar en Zona 2 es entre {Z2_rango:.1f} y {Z2_rangomax:.1f} bpm.")
 
 if __name__ == "__main__":
     main()
